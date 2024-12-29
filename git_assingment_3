@@ -1,0 +1,118 @@
+
+
+
+git checkout feature1
+git init
+
+
+git checkout feature2 
+git init
+
+
+git checkout develop 
+git init
+
+github $ git checkout master
+Switched to branch 'master'
+github $ git branch
+  develop
+  feature-branch
+  feature1
+  feature2
+* master
+
+github $ touch main.txt
+
+
+github $ git commit -m "added main"
+[master 21f992e] added main
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 main.txt
+
+gitlab $ git branch
+  F1
+* F2
+  develop
+  feature-branch
+  master
+  
+ gitlab $ git checkout F1
+Switched to branch 'F1'
+
+
+gitlab $ touch f1.txt
+gitlab $ git add f1.txt
+gitlab $ git commit -m "done f1"
+[F1 a7adfa1] done f1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f1.txt
+
+gitlab $ touch f2.txt
+gitlab $ git add f2.txt
+gitlab $ git commit -m "done f2"
+[F2 90f7ae7] done f2
+
+ 
+gitlab $ git push origin F1
+
+Enumerating objects: 35, done.
+Counting objects: 100% (35/35), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (26/26), done.
+Writing objects: 100% (35/35), 7.03 KiB | 1.17 MiB/s, done.
+Total 35 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), done.
+remote: 
+remote: Create a pull request for 'F1' on GitHub by visiting:
+remote:      https://github.com/DadysCookin/GIT_Assingment/pull/new/F1
+remote: 
+To github.com:DadysCookin/GIT_Assingment.git
+ * [new branch]      F1 -> F1
+
+
+
+gitlab $ git push origin F2
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 253 bytes | 253.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'F2' on GitHub by visiting:
+remote:      https://github.com/DadysCookin/GIT_Assingment/pull/new/F2
+remote: 
+To github.com:DadysCookin/GIT_Assingment.git
+ * [new branch]      F2 -> F2
+ 
+ 
+ 
+ gitlab $ git push origin develop
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 413 bytes | 413.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'develop' on GitHub by visiting:
+remote:      https://github.com/DadysCookin/GIT_Assingment/pull/new/develop
+remote: 
+To github.com:DadysCookin/GIT_Assingment.git
+ * [new branch]      develop -> develop
+ 
+ 
+ gitlab $ git branch -d F2
+error: The branch 'F2' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D F2'.
+gitlab $ git branch -D F2
+Deleted branch F2 (was 90f7ae7).
+
+
+
+
+
+
+

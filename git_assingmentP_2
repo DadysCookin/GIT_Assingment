@@ -1,0 +1,120 @@
+
+
+git version --
+
+git version 2.25.1
+
+git branch
+
+git branch develop
+git branch feature1
+git branch feature2
+
+Gitlab $ git checkout develop  "Switched to branch 'develop'"
+
+touch develop.txt
+
+Gitlab $ git branch
+  develop
+  feature1
+  feature2
+* master
+
+Gitlab $ touch feature1.txt
+
+Gitlab $ touch feature2.txt
+
+Gitlab $ git add feature1.txt 
+Gitlab $ git commit -m "added"
+
+Gitlab $ git add feature2.txt 
+Gitlab $ git commit -m "added"
+
+git checkout develop
+
+Gitlab $ touch develop.txt
+Gitlab $ ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Dec  9 17:28 .
+drwx------ 7 root root 4096 Dec  9 17:16 ..
+-rw-r--r-- 1 root root    0 Dec  9 17:28 develop.txt
+drwxr-xr-x 8 root root 4096 Dec  9 17:28 .git
+Gitlab $ 
+
+
+Gitlab $ git status
+On branch develop
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	develop.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+Gitlab $ git stash -u
+Saved working directory and index state WIP on develop: c3c80f2 dleted
+
+
+Gitlab $ git checkout feature1
+Switched to branch 'feature1'
+
+Gitlab $ git branch
+  develop
+* feature1
+  feature2
+  main
+
+Gitlab $ touch new.txt
+
+
+Gitlab $ git add new.txt 
+Gitlab $ git status
+On branch feature1
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   new.txt
+
+Gitlab $ git commit -m "new"
+[feature1 0ecff41] new
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new.txt
+
+
+Gitlab $ git checkout develop
+Switched to branch 'develop'
+
+
+Gitlab $ git stash list
+stash@{0}: WIP on develop: c3c80f2 dleted
+
+Gitlab $ git stash apply
+Already up to date!
+On branch develop
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	develop.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+Gitlab $ git add develop.txt 
+Gitlab $ git status
+On branch develop
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   develop.txt
+
+Gitlab $ git commit -m "stash added"
+[develop 15a8a3f] stash added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+
+
+
+
+
+
+
+
+
+
