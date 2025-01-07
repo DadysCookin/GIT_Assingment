@@ -1,0 +1,126 @@
+
+DockerLab $ ls
+assingmnts  Desktop  Dockerfile  Documents  Downloads  git_assingment_3  Music	Pictures  Public  snap	Templates  Videos
+DockerLab $ ls -l
+total 48
+drwxrwxr-x 2 devops devops 4096 Dec 21 00:03 assingmnts
+drwxr-xr-x 3 devops devops 4096 Jan  3 22:52 Desktop
+-rw-r--r-- 1 root   root    118 Jan  7 21:21 Dockerfile
+drwxr-xr-x 2 devops devops 4096 Nov 21 23:02 Documents
+drwxr-xr-x 2 devops devops 4096 Nov 20 12:26 Downloads
+-rw-rw-r-- 1 devops devops 3304 Dec 12 18:59 git_assingment_3
+drwxr-xr-x 2 devops devops 4096 Nov 20 12:26 Music
+drwxr-xr-x 4 devops devops 4096 Dec 31 23:36 Pictures
+drwxr-xr-x 2 devops devops 4096 Nov 20 12:26 Public
+drwx------ 5 devops devops 4096 Jan  4 18:00 snap
+drwxr-xr-x 2 devops devops 4096 Nov 20 12:26 Templates
+drwxr-xr-x 2 devops devops 4096 Nov 20 12:26 Videos
+DockerLab $ 
+DockerLab $ 
+DockerLab $ nano Doc
+Dockerfile  Documents/  
+DockerLab $ nano Dockerfile 
+DockerLab $ cat Dockerfile 
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install apache2 -y
+ADD . /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
+
+DockerLab $ nano index.html
+DockerLab $ cat index.html 
+Hello
+
+Imma Do Everyhting Right
+
+On 
+
+Docker
+
+Conatiner
+
+DockerLab $ docker build . -t project-devops
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+ERRO[0001] Can't add file /home/devops/.cache/ibus/dbus-CxNjS2Ji to tar: archive/tar: sockets not supported 
+ERRO[0001] Can't add file /home/devops/.cache/ibus/dbus-kMYhsorD to tar: archive/tar: sockets not supported 
+ERRO[0001] Can't add file /home/devops/.cache/ibus/dbus-nskHPPhc to tar: archive/tar: sockets not supported 
+Sending build context to Docker daemon    399MB
+Step 1/5 : FROM ubuntu
+ ---> b1d9df8ab815
+Step 2/5 : RUN apt-get update
+ ---> Running in 9761ed16a73b
+ .
+ .
+ .
+ .
+ .
+ .
+ .
+ .
+ .
+ .
+DockerLab $ docker images
+REPOSITORY             TAG       IMAGE ID       CREATED              SIZE
+project-devops         latest    1ed86b6c8cf1   About a minute ago   621MB
+nashit836/assingment   tagname   3050917d065e   5 days ago           230MB
+docker-image           v1        3050917d065e   5 days ago           230MB
+ubuntu                 latest    b1d9df8ab815   6 weeks ago          78.1MB
+DockerLab $ 
+DockerLab $ 
+DockerLab $ 
+DockerLab $ docker run -itd -p 81:80 project-devops
+593fa6134d0953fb18b62bca7bb92335ce4031571e02daed3f04a5e0dbaf5ae2
+DockerLab $ docker stop project-devops
+Error response from daemon: No such container: project-devops
+DockerLab $ docker stop 593fa6134d0953fb18b62bca7bb92335ce4031571e02daed3f04a5e0dbaf5ae2
+^C
+DockerLab $ docker stop 593fa6134d0953fb18b62bca7bb92335ce4031571e02daed3f04a5e0dbaf5ae2
+593fa6134d0953fb18b62bca7bb92335ce4031571e02daed3f04a5e0dbaf5ae2
+
+DockerLab $ docker build -t nashit836/project-devops .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+ERRO[0000] Can't add file /home/devops/.cache/ibus/dbus-CxNjS2Ji to tar: archive/tar: sockets not supported 
+ERRO[0000] Can't add file /home/devops/.cache/ibus/dbus-kMYhsorD to tar: archive/tar: sockets not supported 
+ERRO[0000] Can't add file /home/devops/.cache/ibus/dbus-nskHPPhc to tar: archive/tar: sockets not supported 
+Sending build context to Docker daemon  401.5MB
+Step 1/5 : FROM ubuntu
+ ---> b1d9df8ab815
+Step 2/5 : RUN apt-get update
+ ---> Using cache
+ ---> c310c8acda4f
+Step 3/5 : RUN apt-get install apache2 -y
+ ---> Using cache
+ ---> 96dcfa388e6f
+Step 4/5 : ADD . /var/www/html
+.
+.
+.
+.
+.
+.
+
+DockerLab $ docker push nashit836/project-devops
+Using default tag: latest
+The push refers to repository [docker.io/nashit836/project-devops]
+4f1eae37590c: Pushed 
+1bcbbbb6142c: Pushed 
+4fb10e1f6b42: Pushed 
+687d50f2f6a6: Mounted from nashit836/assingment 
+latest: digest: sha256:3ae8cfcd8168977a06cf1f98ad27a85838b315a95b7f14da259624282b2ee13c size: 1166
+
+
+#GIVING  THE LINK TO DEVELOPERS OF THIS NEW IMAGE
+
+DockerLab $ docker pull nashit836/project-devops:latest
+latest: Pulling from nashit836/project-devops
+Digest: sha256:3ae8cfcd8168977a06cf1f98ad27a85838b315a95b7f14da259624282b2ee13c
+Status: Image is up to date for nashit836/project-devops:latest
+docker.io/nashit836/project-devops:latest
+DockerLab $ 
+

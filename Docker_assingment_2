@@ -1,0 +1,92 @@
+
+
+
+DockerLab $ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+ubuntu       latest    b1d9df8ab815   6 weeks ago    78.1MB
+alpine       latest    63b790fccc90   3 months ago   7.8MB
+
+DockerLab $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+DockerLab $ 
+
+
+DockerLab $ docker run -d ubuntu
+6a23151bd61852f118f53593ab82fc5814d87ce718bd420519ad93203d5d7272
+
+DockerLab $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS                     PORTS     NAMES
+6a23151bd618   ubuntu    "/bin/bash"   5 seconds ago   Exited (0) 2 seconds ago             admiring_joliot
+
+DockerLab $ docker run --name docker-image ubuntu
+DockerLab $ 
+DockerLab $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS                      PORTS     NAMES
+7de3016edb7d   ubuntu    "/bin/bash"   7 seconds ago    Exited (0) 6 seconds ago              docker-image
+
+DockerLab $ docker run -d -p 81:80 --name docker-image ubuntu
+60099916daf74abe424f28b95c06c1f37c2b468757fac7ce4eb0d6193202956a
+
+DockerLab $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS                       PORTS     NAMES
+2e4eab3b9403   ubuntu    "/bin/bash"   3 minutes ago   Exited (130) 2 minutes ago             docker-image
+DockerLab $ 
+DockerLab $ 
+DockerLab $ docker start docker-image
+docker-image
+DockerLab $ 
+DockerLab $ 
+DockerLab $ docker exec -it docker-image bash
+root@2e4eab3b9403:/# 
+root@2e4eab3b9403:/# 
+root@2e4eab3b9403:/# 
+root@2e4eab3b9403:/# 
+root@2e4eab3b9403:/# apt update
+Get:1 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:3 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [15.3 kB]
+Get:4 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1028 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]          
+Get:10 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [707 kB]
+Get:11 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [719 kB]      
+Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]                                                                                                       
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1254 kB]                                                                                           
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [724 kB]                                                                                          
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [19.7 kB]                                                                                         
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [968 kB]                                                                                                
+Get:17 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [11.9 kB]                                                                                         
+Fetched 27.7 MB in 9s (3011 kB/s)                                                                                                                                                 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+All packages are up to date.
+
+root@2e4eab3b9403:/# apt install apache2
+
+root@2e4eab3b9403:/# service apache2 status
+ * apache2 is running
+
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS                               NAMES
+2e4eab3b9403   ubuntu    "/bin/bash"   22 minutes ago   Up 17 minutes   0.0.0.0:81->80/tcp, :::81->80/tcp   docker-image
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

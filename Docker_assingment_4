@@ -1,0 +1,122 @@
+
+
+DockerLab $ docker images
+REPOSITORY             TAG       IMAGE ID       CREATED        SIZE
+nashit836/assingment   tagname   3050917d065e   41 hours ago   230MB
+docker-image           v1        3050917d065e   41 hours ago   230MB
+ubuntu                 latest    b1d9df8ab815   6 weeks ago    78.1MB
+
+DockerLab $ ls
+feature.txt	main.txt    public2.txt  snap
+GIT_ASSINGMENT	master.txt  public.txt	 urgent.txt
+DockerLab $ ls -la
+total 76
+drwx------ 10 root root  4096 Jan  2 01:27 .
+drwxr-xr-x 20 root root  4096 Dec 21 00:02 ..
+-rw-r--r--  1 root root 10726 Jan  2 00:04 .bash_history
+drwx------  5 root root  4096 Jan  3 19:30 .cache
+drwxr-xr-x  3 root root  4096 Dec 21 11:30 .config
+drwx------  2 root root  4096 Jan  2 01:27 .docker
+-rw-r--r--  1 root root    28 Dec 21 11:54 feature.txt
+drwxr-xr-x  8 root root  4096 Dec 21 11:56 .git
+drwxr-xr-x  3 root root  4096 Dec 21 11:48 GIT_ASSINGMENT
+-rw-r--r--  1 root root    46 Dec 21 11:48 .gitconfig
+-rw-------  1 root root    20 Dec 21 11:56 .lesshst
+drwxr-xr-x  3 root root  4096 Nov 20 22:03 .local
+-rw-r--r--  1 root root     0 Dec 21 11:37 main.txt
+-rw-r--r--  1 root root    39 Dec 21 11:37 master.txt
+-rw-r--r--  1 root root    19 Dec 21 11:37 public2.txt
+-rw-r--r--  1 root root     0 Dec 21 11:37 public.txt
+drwx------  4 root root  4096 Dec 20 21:51 snap
+drwxr-xr-x  2 root root  4096 Dec 21 11:48 .ssh
+-rw-r--r--  1 root root    30 Dec 21 11:54 urgent.txt
+
+DockerLab $ nano Dockerfile
+DockerLab $ cat Dockerfile
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install apache2 -y
+ENTRYPOINT apachectl -D FOREGROUND
+
+DockerLab $ docker build . -t task-4_dockerfile_image
+
+EPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  1.909MB
+Step 1/4 : FROM ubuntu
+ ---> b1d9df8ab815
+Step 2/4 : RUN apt-get update
+ ---> Running in 3b5e0da4b0e7
+Get:1 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:4 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1028 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+Get:8 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [15.3 kB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [707 kB]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [719 kB]
+Get:11 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+Get:12 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [726 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1256 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [19.7 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [971 kB]
+Get:17 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [11.9 kB]
+Fetched 27.7 MB in 14s (1949 kB/s)
+Reading package lists...
+Removing intermediate container 3b5e0da4b0e7
+ ---> 7610b9fcc1db
+Step 3/4 : RUN apt-get install apache2 -y
+ ---> Running in 2be9ce19421c
+Reading package lists...
+Building dependency tree...
+Reading state information..
+.
+.
+.
+.
+.
+.
+.
+.
+.
+DockerLab $ docker images
+REPOSITORY                TAG       IMAGE ID       CREATED         SIZE
+task-4_dockerfile_image   latest    d9460ed7dba9   2 minutes ago   230MB
+docker-image              v1        3050917d065e   43 hours ago    230MB
+nashit836/assingment      tagname   3050917d065e   43 hours ago    230MB
+ubuntu                    latest    b1d9df8ab815   6 weeks ago     78.1MB
+
+DockerLab $ docker run -itd -p 81:80 task-4_dockerfile_image
+ea209c4e0590cde19bcb4dfb7592f7af87adae854bfb36fc4e37305e1f07e7b4
+DockerLab $ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

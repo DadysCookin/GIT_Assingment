@@ -1,0 +1,49 @@
+
+
+
+DockerLab $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS                               NAMES
+2e4eab3b9403   ubuntu    "/bin/bash"   24 minutes ago   Up 19 minutes   0.0.0.0:81->80/tcp, :::81->80/tcp   docker-image
+DockerLab $ 
+
+DockerLab $ docker login
+Log in with your Docker ID or email address to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com/ to create one.
+You can log in with your password or a Personal Access Token (PAT). Using a limited-scope PAT grants better security and is required for organizations using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+
+Username: nashit836
+Password: 
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+DockerLab $ 
+
+DockerLab $ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+ubuntu       latest    b1d9df8ab815   6 weeks ago   78.1MB
+DockerLab $ 
+DockerLab $ 
+DockerLab $ docker commit 2e4eab3b9403 docker-image:v1 
+sha256:3050917d065e20e2395ccdfa7b0e158a4c427c66ec6276e32d29acac7b7b1d8d
+DockerLab $ docker tag docker-image:v1 nashit836/assingment:tagname
+DockerLab $ 
+DockerLab $ docker push  nashit836/assingment:tagname
+The push refers to repository [docker.io/nashit836/assingment]
+eec4b5761bfd: Pushed 
+687d50f2f6a6: Mounted from library/ubuntu 
+tagname: digest: sha256:a74bff6da730f225baa7de6ddb50e3cdc607aa24a8322fdcf1d8fd207fdfa6a4 size: 741
+
+DockerLab $ docker push  nashit836/assingment:tagname
+The push refers to repository [docker.io/nashit836/assingment]
+eec4b5761bfd: Pushed 
+687d50f2f6a6: Mounted from library/ubuntu 
+tagname: digest: sha256:a74bff6da730f225baa7de6ddb50e3cdc607aa24a8322fdcf1d8fd207fdfa6a4 size: 741
+
+
+
+
+
+
+
+

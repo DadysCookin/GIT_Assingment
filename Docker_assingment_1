@@ -1,0 +1,209 @@
+
+
+Docker $ docker imges
+docker: 'imges' is not a docker command.
+See 'docker --help'
+Docker $ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+ubuntu       latest    b1d9df8ab815   5 weeks ago    78.1MB
+alpine       latest    63b790fccc90   3 months ago   7.8MB
+Docker $ 
+Docker $ 
+Docker $ docker search ubuntu
+NAME                             DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+ubuntu                           Ubuntu is a Debian-based Linux operating sys…   17427     [OK]       
+ubuntu/squid                     Squid is a caching proxy for the Web. Long-t…   103                  
+ubuntu/nginx                     Nginx, a high-performance reverse proxy & we…   123                  
+ubuntu/cortex                    Cortex provides storage for Prometheus. Long…   4                    
+ubuntu/apache2                   Apache, a secure & extensible open-source HT…   82                   
+ubuntu/kafka                     Apache Kafka, a distributed event streaming …   52                   
+ubuntu/bind9                     BIND 9 is a very flexible, full-featured DNS…   99                   
+ubuntu/prometheus                Prometheus is a systems and service monitori…   69                   
+ubuntu/zookeeper                 ZooKeeper maintains configuration informatio…   13                   
+ubuntu/mysql                     MySQL open source fast, stable, multi-thread…   66                   
+ubuntu/postgres                  PostgreSQL is an open source object-relation…   40                   
+ubuntu/redis                     Redis, an open source key-value store. Long-…   23                   
+ubuntu/jre                       Distroless Java runtime based on Ubuntu. Lon…   19                   
+ubuntu/dotnet-aspnet             Chiselled Ubuntu runtime image for ASP.NET a…   23                   
+ubuntu/cassandra                 Cassandra, an open source NoSQL distributed …   2                    
+ubuntu/grafana                   Grafana, a feature rich metrics dashboard & …   12                   
+ubuntu/dotnet-deps               Chiselled Ubuntu for self-contained .NET & A…   16                   
+ubuntu/memcached                 Memcached, in-memory keyvalue store for smal…   5                    
+ubuntu/prometheus-alertmanager   Alertmanager handles client alerts from Prom…   9                    
+ubuntu/dotnet-runtime            Chiselled Ubuntu runtime image for .NET apps…   20                   
+ubuntu/python                    A chiselled Ubuntu rock with the Python runt…   19                   
+ubuntu/mlflow                    MLFlow: for managing the machine learning li…   4                    
+ubuntu/telegraf                  Telegraf collects, processes, aggregates & w…   4                    
+ubuntu/loki                      Grafana Loki, a log aggregation system like …   2                    
+ubuntu/chiselled-jre             [MOVED TO ubuntu/jre] Chiselled JRE: distrol…   3
+
+
+Docker $ docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+Digest: sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6734ab
+Status: Image is up to date for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+Docker $ docker run -p 80:80 --name fisher-cole ubuntu
+
+Docker $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS                      PORTS     NAMES
+fc02a8b108b0   ubuntu    "/bin/bash"   39 seconds ago   Exited (0) 38 seconds ago             fisher-cole
+
+
+
+Docker $ apt install apache2
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libffi7
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap
+Suggested packages:
+  apache2-doc apache2-suexec-pristine | apache2-suexec-custom
+The following NEW packages will be installed:
+  apache2 apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap
+0 upgraded, 8 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,922 kB of archives.
+After this operation, 7,724 kB of additional disk space will be used.
+Do you want to continue? [Y/n] yes
+Get:1 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libapr1 amd64 1.7.0-8ubuntu0.22.04.2 [108 kB]
+Get:2 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libaprutil1 amd64 1.6.1-5ubuntu4.22.04.2 [92.8 kB]
+Get:3 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libaprutil1-dbd-sqlite3 amd64 1.6.1-5ubuntu4.22.04.2 [11.3 kB]
+Get:4 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libaprutil1-ldap amd64 1.6.1-5ubuntu4.22.04.2 [9,170 B]
+Get:5 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2-bin amd64 2.4.52-1ubuntu4.12 [1,348 kB]
+Get:6 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2-data all 2.4.52-1ubuntu4.12 [165 kB]
+Get:7 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2-utils amd64 2.4.52-1ubuntu4.12 [89.1 kB]
+Get:8 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 apache2 amd64 2.4.52-1ubuntu4.12 [97.9 kB]
+Fetched 1,922 kB in 2s (877 kB/s)  
+Selecting previously unselected package libapr1:amd64.
+(Reading database ... 202634 files and directories currently installed.)
+Preparing to unpack .../0-libapr1_1.7.0-8ubuntu0.22.04.2_amd64.deb ...
+Unpacking libapr1:amd64 (1.7.0-8ubuntu0.22.04.2) ...
+Selecting previously unselected package libaprutil1:amd64.
+Preparing to unpack .../1-libaprutil1_1.6.1-5ubuntu4.22.04.2_amd64.deb ...
+Unpacking libaprutil1:amd64 (1.6.1-5ubuntu4.22.04.2) ...
+Selecting previously unselected package libaprutil1-dbd-sqlite3:amd64.
+Preparing to unpack .../2-libaprutil1-dbd-sqlite3_1.6.1-5ubuntu4.22.04.2_amd64.deb ...
+Unpacking libaprutil1-dbd-sqlite3:amd64 (1.6.1-5ubuntu4.22.04.2) ...
+Selecting previously unselected package libaprutil1-ldap:amd64.
+Preparing to unpack .../3-libaprutil1-ldap_1.6.1-5ubuntu4.22.04.2_amd64.deb ...
+Unpacking libaprutil1-ldap:amd64 (1.6.1-5ubuntu4.22.04.2) ...
+Selecting previously unselected package apache2-bin.
+Preparing to unpack .../4-apache2-bin_2.4.52-1ubuntu4.12_amd64.deb ...
+Unpacking apache2-bin (2.4.52-1ubuntu4.12) ...
+Selecting previously unselected package apache2-data.
+Preparing to unpack .../5-apache2-data_2.4.52-1ubuntu4.12_all.deb ...
+Unpacking apache2-data (2.4.52-1ubuntu4.12) ...
+Selecting previously unselected package apache2-utils.
+Preparing to unpack .../6-apache2-utils_2.4.52-1ubuntu4.12_amd64.deb ...
+Unpacking apache2-utils (2.4.52-1ubuntu4.12) ...
+Selecting previously unselected package apache2.
+Preparing to unpack .../7-apache2_2.4.52-1ubuntu4.12_amd64.deb ...
+Unpacking apache2 (2.4.52-1ubuntu4.12) ...
+Setting up libapr1:amd64 (1.7.0-8ubuntu0.22.04.2) ...
+Setting up apache2-data (2.4.52-1ubuntu4.12) ...
+Setting up libaprutil1:amd64 (1.6.1-5ubuntu4.22.04.2) ...
+Setting up libaprutil1-ldap:amd64 (1.6.1-5ubuntu4.22.04.2) ...
+Setting up libaprutil1-dbd-sqlite3:amd64 (1.6.1-5ubuntu4.22.04.2) ...
+Setting up apache2-utils (2.4.52-1ubuntu4.12) ...
+Setting up apache2-bin (2.4.52-1ubuntu4.12) ...
+Setting up apache2 (2.4.52-1ubuntu4.12) ...
+Enabling module mpm_event.
+Enabling module authz_core.
+Enabling module authz_host.
+Enabling module authn_core.
+Enabling module auth_basic.
+Enabling module access_compat.
+Enabling module authn_file.
+Enabling module authz_user.
+Enabling module alias.
+Enabling module dir.
+Enabling module autoindex.
+Enabling module env.
+Enabling module mime.
+Enabling module negotiation.
+Enabling module setenvif.
+Enabling module filter.
+Enabling module deflate.
+Enabling module status.
+Enabling module reqtimeout.
+Enabling conf charset.
+Enabling conf localized-error-pages.
+Enabling conf other-vhosts-access-log.
+Enabling conf security.
+Enabling conf serve-cgi-bin.
+Enabling site 000-default.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+Processing triggers for ufw (0.36.1-4ubuntu0.1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+
+
+Docker $ apt update
+Ign:1 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Hit:2 https://pkg.jenkins.io/debian-stable binary/ Release                                                  
+Hit:3 http://in.archive.ubuntu.com/ubuntu jammy InRelease                                                   
+Get:4 http://in.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]                                  
+Get:6 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]            
+Get:7 http://in.archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:8 http://in.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [742 kB]
+Get:9 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [2,260 kB]
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [43.1 kB]
+Get:11 http://in.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [381 kB]
+Get:12 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [103 kB]
+Get:13 http://in.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [2,853 kB]
+Get:14 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 DEP-11 Metadata [208 B]
+Get:15 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [126 kB]  
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 DEP-11 Metadata [208 B]      
+Get:17 http://in.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [497 kB]           
+Get:18 http://in.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 DEP-11 Metadata [212 B]
+Get:19 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [356 kB]
+Get:20 http://in.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Get:21 http://in.archive.ubuntu.com/ubuntu jammy-backports/main amd64 DEP-11 Metadata [7,020 B]
+Get:22 http://in.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 DEP-11 Metadata [212 B]
+Get:23 http://in.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [17.7 kB]
+Get:24 http://in.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 DEP-11 Metadata [212 B]
+Fetched 7,771 kB in 4s (1,951 kB/s)                                         
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+All packages are up to date.
+Docker $ 
+Docker $ 
+Docker $ service apache2 start
+Docker $ 
+Docker $ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

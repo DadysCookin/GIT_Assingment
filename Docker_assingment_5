@@ -1,0 +1,67 @@
+
+
+DockerLab $ nano index.html
+DockerLab $ cat index.html 
+my man
+is 
+awsme
+DockerLab $ 
+
+
+DockerLab $ nano Dockerfile
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install apache2 -y
+ADD . /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
+
+DockerLab $ docker build . -t task-5_dockerfile_image
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon   1.91MB
+Step 1/5 : FROM ubuntu
+ ---> b1d9df8ab815
+Step 2/5 : RUN apt-get update
+ ---> Using cache
+ ---> 7610b9fcc1db
+Step 3/5 : RUN apt-get install apache2 -y
+ ---> Using cache
+ ---> dd618323d9bb
+Step 4/5 : ADD . /var/www/html
+ ---> 71d7c05ae2de
+Step 5/5 : ENTRYPOINT apachectl -D FOREGROUND
+ ---> Running in ed532d04cde9
+Removing intermediate container ed532d04cde9
+ ---> 35d617601c6d
+Successfully built 35d617601c6d
+Successfully tagged task-5_dockerfile_image:latest
+
+DockerLab $ docker images
+REPOSITORY                TAG       IMAGE ID       CREATED          SIZE
+task-5_dockerfile_image   latest    35d617601c6d   4 minutes ago    231MB
+task-4_dockerfile_image   latest    d9460ed7dba9   23 minutes ago   230MB
+docker-image              v1        3050917d065e   43 hours ago     230MB
+nashit836/assingment      tagname   3050917d065e   43 hours ago     230MB
+ubuntu                    latest    b1d9df8ab815   6 weeks ago      78.1MB
+
+
+DockerLab $ docker run -itd -p 89:80 task-5_dockerfile_image
+0a9b96506c52ab388b7440d6fbbec12fbcb7cc8c04a838ff04ebbd3bdcd115f8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
